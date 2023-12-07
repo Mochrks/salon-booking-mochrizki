@@ -3,6 +3,7 @@ package com.booking.service;
 import java.util.*;
 
 import com.booking.models.Customer;
+import com.booking.models.Employee;
 import com.booking.models.Membership;
 import com.booking.models.Person;
 import com.booking.models.Reservation;
@@ -18,7 +19,7 @@ public class ReservationService {
         // print data semua customer
         PrintService.showAllCustomer(listAllCustomer);
 
-        // =======================================================================
+        // ============================================================================
         // Input Customer ID
         Customer foundCustomer = findCustomerById(listAllCustomer, input);
         // Input Employee ID
@@ -45,10 +46,12 @@ public class ReservationService {
                 String membershipName = membership.getMembershipName().toLowerCase();
                 switch (membershipName) {
                     case "silver":
-                        discountedCost *= 0.95; // Diskon 5% untuk member silver
+                        // discountedCost *= 0.95; // Diskon 5% untuk member silver
+                        discountedCost = discountedCost - (discountedCost * 0.05);
                         break;
                     case "gold":
-                        discountedCost *= 0.9; // Diskon 10% untuk member gold
+                        // discountedCost *= 0.9; // Diskon 10% untuk member gold
+                        discountedCost = discountedCost - (discountedCost * 0.1);
                         break;
                     default:
 

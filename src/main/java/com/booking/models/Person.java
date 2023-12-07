@@ -13,6 +13,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public abstract class Person {
     private String id;
-    private String name;    
+    private String name;
     private String address;
 }

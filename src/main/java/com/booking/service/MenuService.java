@@ -30,16 +30,17 @@ public class MenuService {
             System.out.println("=====================================================================");
             PrintService.printMenu("Main Menu", mainMenuArr);
             System.out.println("=====================================================================");
-            System.out.print("Masukkan pilihan anda: ");
-            optionMainMenu = Integer.valueOf(input.nextLine());
+            System.out.print("Masukkan pilihan anda (Harus angka): ");
+            optionMainMenu = ValidationService.validateInput(input);
             switch (optionMainMenu) {
                 case 1:
                     do {
                         System.out.println("=====================================================================");
                         PrintService.printMenu("Show Data", subMenuArr);
                         System.out.println("=====================================================================");
-                        System.out.print("Masukkan pilihan anda: ");
-                        optionSubMenu = Integer.valueOf(input.nextLine());
+                        System.out.print("Masukkan pilihan anda (Harus angka): ");
+                        optionSubMenu = ValidationService.validateInput(input);
+
                         // Sub menu - menu 1
                         switch (optionSubMenu) {
                             case 1:
