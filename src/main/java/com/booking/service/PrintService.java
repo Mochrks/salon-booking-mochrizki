@@ -2,6 +2,7 @@ package com.booking.service;
 
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 import com.booking.models.Customer;
@@ -198,14 +199,15 @@ public class PrintService {
                 System.out.printf("|%-5s | %-23s | %-20s | %-20s |\n", "No", "ID", "Nama", "Price");
                 System.out.println("================================================================================");
 
-                IntStream.range(0, listAllServices.size())
-                                .mapToObj(index -> listAllServices.get(index))
+                int[] num = { 1 };
+                listAllServices.stream()
                                 .filter(service -> service instanceof Service)
                                 .forEachOrdered(service -> {
                                         System.out.printf("|%-5s | %-23s | %-20s | %-20s |\n",
-                                                        listAllServices.indexOf(service) + 1,
+                                                        num[0],
                                                         service.getServiceId(), service.getServiceName(),
                                                         service.getPrice());
+                                        num[0]++;
                                         System.out.print("\n");
                                 });
 
